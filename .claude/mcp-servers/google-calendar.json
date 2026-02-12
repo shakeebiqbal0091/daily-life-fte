@@ -1,0 +1,37 @@
+{
+  "name": "google-calendar",
+  "description": "Schedule and calendar management through Google Calendar API",
+  "provider": "Google",
+  "authentication": {
+    "type": "OAuth2",
+    "placeholder": "{USER_CALENDAR_CREDENTIALS}",
+    "scope": "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.events"
+  },
+  "capabilities": [
+    "list_calendars",
+    "read_events",
+    "create_event",
+    "update_event",
+    "delete_event",
+    "search_events",
+    "get_free_busy",
+    "create_reminder",
+    "send_invites"
+  ],
+  "rate_limits": {
+    "requests_per_minute": 60,
+    "events_per_day": 2000,
+    "calendar_operations_per_minute": 100
+  },
+  "error_handling": {
+    "authentication_errors": "Retry with refreshed token",
+    "conflict_errors": "Check for overlapping events",
+    "quota_exceeded": "Queue and retry after rate limit",
+    "invalid_time": "Validate time zone and format"
+  },
+  "used_by": [
+    "Meeting Scheduler skill",
+    "Task Prioritizer skill",
+    "Personal Organizer Agent"
+  ]
+}

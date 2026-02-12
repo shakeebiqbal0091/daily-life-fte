@@ -1,0 +1,36 @@
+{
+  "name": "gmail",
+  "description": "Email access and management through Gmail API",
+  "provider": "Google",
+  "authentication": {
+    "type": "OAuth2",
+    "placeholder": "{USER_GMAIL_CREDENTIALS}",
+    "scope": "https://mail.google.com/ https://www.googleapis.com/auth/gmail.modify"
+  },
+  "capabilities": [
+    "list_emails",
+    "read_email",
+    "draft_email",
+    "send_email",
+    "organize_folders",
+    "search_email",
+    "get_labels",
+    "create_label",
+    "move_email"
+  ],
+  "rate_limits": {
+    "requests_per_minute": 60,
+    "emails_per_day": 2000,
+    "attachments_per_request": 10
+  },
+  "error_handling": {
+    "authentication_errors": "Retry with refreshed token",
+    "quota_exceeded": "Queue and retry after rate limit",
+    "network_errors": "Retry with exponential backoff",
+    "invalid_request": "Validate input and retry"
+  },
+  "used_by": [
+    "Email Manager skill",
+    "Content Creator Agent"
+  ]
+}

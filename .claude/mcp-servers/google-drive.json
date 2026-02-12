@@ -1,0 +1,38 @@
+{
+  "name": "google-drive",
+  "description": "Document storage and file management through Google Drive",
+  "provider": "Google",
+  "authentication": {
+    "type": "OAuth2",
+    "placeholder": "{USER_DRIVE_CREDENTIALS}",
+    "scope": "https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.readonly"
+  },
+  "capabilities": [
+    "list_files",
+    "read_file",
+    "create_file",
+    "update_file",
+    "delete_file",
+    "search_files",
+    "create_folder",
+    "move_file",
+    "share_file",
+    "get_permissions"
+  ],
+  "rate_limits": {
+    "requests_per_minute": 100,
+    "files_per_day": 1000,
+    "storage_limit": "15GB per user"
+  },
+  "error_handling": {
+    "authentication_errors": "Retry with refreshed token",
+    "quota_exceeded": "Archive old files, retry later",
+    "file_not_found": "Check file ID and permissions",
+    "permission_denied": "Request appropriate access"
+  },
+  "used_by": [
+    "Content Creator skill",
+    "Learning Assistant skill",
+    "Personal Organizer Agent"
+  ]
+}

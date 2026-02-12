@@ -1,0 +1,36 @@
+{
+  "name": "weather",
+  "description": "Daily weather and forecast data through Weather API",
+  "provider": "OpenWeatherMap",
+  "authentication": {
+    "type": "API Key",
+    "placeholder": "{USER_WEATHER_API_KEY}",
+    "scope": "Current weather and forecasts"
+  },
+  "capabilities": [
+    "get_current_weather",
+    "get_forecast",
+    "get_hourly_forecast",
+    "get_daily_forecast",
+    "get_weather_alerts",
+    "get_air_quality",
+    "get_uv_index",
+    "get_wind_data",
+    "get_precipitation"
+  ],
+  "rate_limits": {
+    "requests_per_minute": 60,
+    "calls_per_day": 1000,
+    "forecast_requests_per_minute": 30
+  },
+  "error_handling": {
+    "authentication_errors": "Validate API key",
+    "rate_limit_exceeded": "Implement exponential backoff",
+    "invalid_location": "Validate coordinates or city name",
+    "network_errors": "Retry with exponential backoff"
+  },
+  "used_by": [
+    "Morning Routine workflow",
+    "Travel Planner skill"
+  ]
+}
